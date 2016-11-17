@@ -29,7 +29,7 @@
 	
 		<%
 		List<Person> people = new ArrayList<>();
-		final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");	
+		final String filePath = session.getServletContext().getRealPath("/asses/JavaWebProgramming.xlsx");	
 		final File inputFile = new File(filePath);
 		people = WorkbookUtility.retrievePeopleFromWorkbook(inputFile);
 		
