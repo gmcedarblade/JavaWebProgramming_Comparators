@@ -4,6 +4,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="edu.cvtc.web.model.Person"%>
 <%@page import="java.util.List"%>
+<%@page import="edu.cvtc.web.comparators.SortBy"%>
+<%@page import="java.util.Collections"%>
+<%@page import="edu.cvtc.web.comparators.AgeComparator" %>
+<%@page import="edu.cvtc.web.comparators.LastNameComparator" %>
+<%@page import="edu.cvtc.web.comparators.FirstNameComparator" %>
+<%@page import="edu.cvtc.web.comparators.FavoriteColorComparator" %>
 <html>
 <head>
 	<title>Java Web Programming: View All</title>
@@ -36,7 +42,22 @@
 		
 		if (null != sortType) {
 			
-			
+			switch (sortType) {
+				case SortBy.AGE:
+					Collections.sort(people, new AgeComparator());
+					break;
+				case SortBy.LAST_NAME:
+					Collections.sort(people, new LastNameComparator());
+					break;
+				case SortBy.FIRST_NAME:
+					Collections.sort(people, new FirstNameComparator());
+					break;
+				case SortBy.FAVORITE_COLOR:
+					Collections.sort(people, new FavoriteColorComparator());
+					break;
+				default:
+					break;
+			}
 			
 		}
 		
