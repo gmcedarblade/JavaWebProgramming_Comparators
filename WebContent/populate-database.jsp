@@ -21,6 +21,9 @@
 	 		final PersonDao personDao = new PersonDaoImpl();
 	 		
 	 		personDao.populatePersonTable(filePath);
+	 		%>
+	 		<p>Success: database populated!</p>
+	 		<%
 	 		
 	 	} catch (final Exception e) {
 	 		
