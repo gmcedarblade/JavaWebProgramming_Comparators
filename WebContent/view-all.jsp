@@ -20,7 +20,7 @@
 <div class="container">
 	
 	<div class="hero-unit">
-		<h1>Student Roster</h1>
+		<h1>Person Search</h1>
 	</div>
 	
 	<%@ include file="includes/navigation.jsp" %>
