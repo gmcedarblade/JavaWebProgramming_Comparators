@@ -11,9 +11,10 @@
 	</div>
 	<%@ include file="includes/navigation.jsp" %>
 	<div class="container">
-		<p>In this course we learn what it is like to be a Java Web Programmer.
-		We will work with our Person spreadsheet again; this time to populate a database.</p>
-		<p>If we need to populate the database, <a href="populate-database.jsp">click here</a></p>
+		<%
+	 	// TODO use a DAO to populate the database. Then present a 'success' message if the database 
+	 	// is populated correctly, and an 'error' message if not.
+		%>
 	</div>
 	<hr>
 	<%@ include file="includes/footer.jsp" %>
