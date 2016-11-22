@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="edu.cvtc.web.dao.impl.PersonDaoImpl"%>
+<%@page import="edu.cvtc.web.dao.PersonDao"%>
 <html>
 <head>
 	<title>Java Web Programming: Populate Database</title>
@@ -12,8 +14,23 @@
 	<%@ include file="includes/navigation.jsp" %>
 	<div class="container">
 		<%
-	 	// TODO use a DAO to populate the database. Then present a 'success' message if the database 
-	 	// is populated correctly, and an 'error' message if not.
+	 	
+	 	try {
+	 		
+	 		final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");
+	 		final PersonDao personDao = new PersonDaoImpl();
+	 		
+	 		personDao.populatePersonTable(filePath);
+	 		
+	 	} catch (final Exception e) {
+	 		
+	 		e.printStackTrace();
+	 		%>
+	 		<p>Error: Sorry, we were unable to populate the database at this time.</p>
+	 		<%
+	 		
+	 	}
+	 	
 		%>
 	</div>
 	<hr>
