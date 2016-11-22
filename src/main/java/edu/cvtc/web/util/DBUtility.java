@@ -3,6 +3,7 @@ package edu.cvtc.web.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * @author gcedarblade
@@ -22,6 +23,24 @@ public class DBUtility {
 		
 		// create the database connection
 		return DriverManager.getConnection(CONNECTION);
+		
+	}
+	
+	public static void closeConnections(final Connection connection, final Statement statement) {
+		
+		try {
+			
+			if (null != connection) {
+				connection.close();
+			}
+			
+			if (null != statement) {
+				statement.close();
+			}
+			
+		} catch (final SQLException e) {
+			
+		}
 		
 	}
 	
