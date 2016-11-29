@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.cvtc.web.exceptions.PersonDatabaseException;
+
 /**
  * Servlet implementation class AddPersonController
  */
@@ -18,16 +20,32 @@ public class AddPersonController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String target = null;
+		
+		try {
+			
+			target = "success.jsp";
+			
+		} catch (PersonDatabaseException e) {
+			
+			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
+			target = "error.jsp";
+			
+		}
+		
+		request.getRequestDispatcher(target).forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
+		
 	}
 
 }
