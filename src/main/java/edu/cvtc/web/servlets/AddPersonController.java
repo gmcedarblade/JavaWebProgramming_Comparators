@@ -38,6 +38,8 @@ public class AddPersonController extends HttpServlet {
 			final PersonDao personDao = new PersonDaoImpl();
 			personDao.insertPerson(person);
 			
+			request.setAttribute("success", "Success, a new person was added to the database.");
+			
 			target = "success.jsp";
 			
 		} catch (PersonDatabaseException e) {
