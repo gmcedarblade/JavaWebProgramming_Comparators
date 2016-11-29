@@ -2,6 +2,7 @@ package edu.cvtc.web.dao.impl;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -109,8 +110,42 @@ public class PersonDaoImpl implements PersonDao {
 
 	@Override
 	public Integer insertPerson(final Person person) throws PersonDatabaseException {
-		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement =  null;
+		
+		try {
+			
+			connection = DBUtility.createConnection();
+			
+			final String insertSQL = "insert into person (firstName, lastName, age, favoriteColor) "
+					+ "values (?, ?, ?, ?)";
+			
+			preparedStatement = connection.prepareStatement(insertSQL);
+			
+			preparedStatement.setString(1, person.getFirstName());
+			preparedStatement.setString(2, person.getLastName());
+			preparedStatement.setInt(3, person.getAge());
+			preparedStatement.setString(4, person.getFavoriteColor());
+			
+			preparedStatement.setQueryTimeout(DBUtility.TIMEOUT);
+			
+			return preparedStatement.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			throw new PersonDatabaseException("Error adding this person to the database.");
+			
+		} finally {
+			
+			DBUtility.closeConnections(connection, preparedStatement);
+			
+		}
+		
 		return null;
+		
 	}
 
 }
