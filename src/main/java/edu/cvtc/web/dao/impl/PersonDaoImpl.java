@@ -2,7 +2,9 @@ package edu.cvtc.web.dao.impl;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.cvtc.web.dao.PersonDao;
@@ -62,7 +64,46 @@ public class PersonDaoImpl implements PersonDao {
 	@Override
 	public List<Person> retrievePeople() throws PersonDatabaseException {
 		
-		return null;
+		final List<Person> people = new ArrayList<>();
+		
+		Connection connection = null;
+		Statement statement = null;
+		
+		try {
+			
+			connection = DBUtility.createConnection();
+			statement = connection.createStatement();
+			
+			statement.setQueryTimeout(DBUtility.TIMEOUT);
+			
+			final ResultSet results = statement.executeQuery(SELECT_ALL_FROM_PERSON);
+			
+			while (results.next()) {
+	
+				final String firstName = results.getString("firstName");
+				final String lastName = results.getString("lastName");
+				final int age = results.getInt("age");
+				final String favoriteColor = results.getString("favoriteColor");
+				
+				final Person person = new Person(firstName, lastName, age, favoriteColor);
+				people.add(person);
+				
+			}
+			
+			results.close();
+			
+		} catch (final Exception e) {
+			
+			e.printStackTrace();
+			throw new PersonDatabaseException("Error retrieving people from the database.");
+			
+		} finally {
+			
+			DBUtility.closeConnections(connection, statement);
+			
+		}
+		
+		return people;
 		
 	}
 
