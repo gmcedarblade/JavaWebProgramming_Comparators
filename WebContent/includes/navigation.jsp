@@ -10,4 +10,5 @@
 			<li><a href="view-all.jsp?sort=favoriteColor">By Favorite Color</a></li>
 		</ul>
 	</li>
+	<li><a href="add-person.jsp">Add Person</a></li>
 </ul>
