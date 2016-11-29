@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="edu.cvtc.web.dao.impl.PersonDaoImpl"%>
+<%@page import="edu.cvtc.web.dao.PersonDao"%>
 <%@page import="java.io.File"%>
 <%@page import="edu.cvtc.web.util.WorkbookUtility"%>
 <%@page import="java.util.ArrayList"%>
@@ -32,9 +34,13 @@
 		try {
 			
 			List<Person> people = new ArrayList<>();
-			final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");	
+			
+			final PersonDao personDao = new PersonDaoImpl();
+			people = personDao.retrievePeople();
+			
+			/*final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");	
 			final File inputFile = new File(filePath);
-			people = WorkbookUtility.retrievePeopleFromWorkbook(inputFile);
+			people = WorkbookUtility.retrievePeopleFromWorkbook(inputFile);*/
 			
 			/**
 			* If the sortType is "age", then use an AgeComparator.
