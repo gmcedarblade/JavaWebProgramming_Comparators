@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.cvtc.web.dao.PersonDao;
+import edu.cvtc.web.dao.impl.PersonDaoImpl;
 import edu.cvtc.web.exceptions.PersonDatabaseException;
 import edu.cvtc.web.model.Person;
 
@@ -28,11 +30,13 @@ public class AddPersonController extends HttpServlet {
 			
 			final String firstName = request.getParameter("firstName");
 			final String lastName = request.getParameter("lastName");
-			//final String ageString = request.getParameter("age");
 			final int age = Integer.parseInt(request.getParameter("age"));
 			final String favoriteColor = request.getParameter("favoriteColor");
 			
 			final Person person = new Person(firstName, lastName, age, favoriteColor);
+			
+			final PersonDao personDao = new PersonDaoImpl();
+			personDao.insertPerson(person);
 			
 			target = "success.jsp";
 			
