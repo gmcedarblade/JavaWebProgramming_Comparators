@@ -107,4 +107,10 @@ public class PersonDaoImpl implements PersonDao {
 		
 	}
 
+	@Override
+	public Integer insertPerson(final Person person) throws PersonDatabaseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

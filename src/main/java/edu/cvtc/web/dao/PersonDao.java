@@ -14,4 +14,7 @@ public interface PersonDao {
 	void populatePersonTable(String filePath) throws Exception;
 
 	List<Person> retrievePeople() throws PersonDatabaseException;
+	
+	Integer insertPerson(Person person) throws PersonDatabaseException;
+	
 }

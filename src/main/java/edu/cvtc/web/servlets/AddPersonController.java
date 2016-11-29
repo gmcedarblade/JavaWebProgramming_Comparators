@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.cvtc.web.exceptions.PersonDatabaseException;
+import edu.cvtc.web.model.Person;
 
 /**
  * Servlet implementation class AddPersonController
@@ -24,6 +25,14 @@ public class AddPersonController extends HttpServlet {
 		String target = null;
 		
 		try {
+			
+			final String firstName = request.getParameter("firstName");
+			final String lastName = request.getParameter("lastName");
+			//final String ageString = request.getParameter("age");
+			final int age = Integer.parseInt(request.getParameter("age"));
+			final String favoriteColor = request.getParameter("favoriteColor");
+			
+			final Person person = new Person(firstName, lastName, age, favoriteColor);
 			
 			target = "success.jsp";
 			
