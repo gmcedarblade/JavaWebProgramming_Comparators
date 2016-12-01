@@ -38,13 +38,16 @@
 			final PersonDao personDao = new PersonDaoImpl();
 			people = personDao.retrievePeople();
 			
-			/*final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");	
+			/*
+			-----NOTES----------
+			final String filePath = session.getServletContext().getRealPath("/assets/JavaWebProgramming.xlsx");	
 			final File inputFile = new File(filePath);
 			people = WorkbookUtility.retrievePeopleFromWorkbook(inputFile);*/
 			
 			/**
 			* If the sortType is "age", then use an AgeComparator.
 			* If the sortType is "lastName", then use a LastNameComparator.
+			---------------------
 			*/
 			
 			final String sortType = request.getParameter("sort");
