@@ -13,4 +13,12 @@ public interface PersonSearch {
 
 	List<Person> retrievePeople(String sortType) throws PersonSearchException;
 	
+	List<Person> findPeopleByLastName(String lastName) throws PersonSearchException;
+	
+	List<Person> findPeopleByFirstName(String firstName) throws PersonSearchException;
+	
+	List<Person> findPeopleByFavoriteColor(String favoriteColor) throws PersonSearchException;
+	
+	List<Person> findPeopleByAge(int age) throws PersonSearchException;
+	
 }
