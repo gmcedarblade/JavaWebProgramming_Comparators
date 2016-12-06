@@ -19,7 +19,7 @@ public class FavoriteColorPredicate implements Predicate<Person>{
 	@Override
 	public boolean apply(Person person) {
 
-		return person.getFavoriteColor().equals(favoriteColor);
+		return person.getFavoriteColor().equalsIgnoreCase(favoriteColor);
 	}
 	
 	

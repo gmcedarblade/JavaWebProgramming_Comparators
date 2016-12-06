@@ -21,7 +21,7 @@ public class FirstNamePredicate implements Predicate<Person>{
 	@Override
 	public boolean apply(final Person person) {
 		
-		if (person.getFirstName().equals(firstName)) {
+		if (person.getFirstName().equalsIgnoreCase(firstName)) {
 			return true;
 		}
 		return false;

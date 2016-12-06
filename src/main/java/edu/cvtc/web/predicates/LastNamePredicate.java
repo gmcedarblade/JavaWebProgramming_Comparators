@@ -20,7 +20,7 @@ public class LastNamePredicate implements Predicate<Person> {
 	
 	@Override
 	public boolean apply(Person person) {
-		return person.getLastName().equals(lastName);
+		return person.getLastName().equalsIgnoreCase(lastName);
 	}
 
 	
