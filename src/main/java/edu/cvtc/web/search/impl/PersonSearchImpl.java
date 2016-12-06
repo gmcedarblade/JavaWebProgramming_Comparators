@@ -113,7 +113,7 @@ public class PersonSearchImpl implements PersonSearch {
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new PersonSearchException("Could not find person(s) by last name.");
+			throw new PersonSearchException("Could not find person(s) by first name.");
 		}
 		
 	}
@@ -130,13 +130,13 @@ public class PersonSearchImpl implements PersonSearch {
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new PersonSearchException("Could not find person(s) by last name.");
+			throw new PersonSearchException("Could not find person(s) by favorite color.");
 		}
 		
 	}
 	
 	@Override
-	public List<Person> findPeopleByAge(final int age) throws PersonSearchException {
+	public List<Person> findPeopleByAge(final Integer age) throws PersonSearchException {
 		
 		try {
 			
@@ -146,7 +146,7 @@ public class PersonSearchImpl implements PersonSearch {
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new PersonSearchException("Could not find person(s) by last name.");
+			throw new PersonSearchException("Could not find person(s) by age.");
 		}
 	}
 

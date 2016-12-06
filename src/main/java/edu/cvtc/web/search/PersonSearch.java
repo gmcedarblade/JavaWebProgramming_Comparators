@@ -18,7 +18,7 @@ public interface PersonSearch {
 	List<Person> findPeopleByFirstName(String firstName) throws PersonSearchException;
 	
 	List<Person> findPeopleByFavoriteColor(String favoriteColor) throws PersonSearchException;
-	
-	List<Person> findPeopleByAge(int age) throws PersonSearchException;
+
+	List<Person> findPeopleByAge(Integer age) throws PersonSearchException;
 	
 }

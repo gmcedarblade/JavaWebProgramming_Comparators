@@ -18,7 +18,7 @@
 	<div class="container">
 	
 		<c:choose>
-			<c:when test="empty ${people}">
+			<c:when test="${empty people}">
 				<p>Sorry the list of people is empty.</p>
 			</c:when>
 			<c:otherwise>

@@ -10,9 +10,9 @@ import edu.cvtc.web.model.Person;
  */
 public class AgePredicate implements Predicate<Person> {
 
-	final int age;
+	final Integer age;
 	
-	public AgePredicate(final int age) {
+	public AgePredicate(final Integer age) {
 		
 		this.age = age;
 		
