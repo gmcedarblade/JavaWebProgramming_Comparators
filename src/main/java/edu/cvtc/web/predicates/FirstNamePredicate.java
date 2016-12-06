@@ -26,6 +26,12 @@ public class FirstNamePredicate implements Predicate<Person>{
 		}
 		return false;
 		
+		/*
+		 * Or could do just do this
+		 * 
+		 * return person.getFirstName().equals(firstName);
+		 * */
+		
 	}
 
 }
